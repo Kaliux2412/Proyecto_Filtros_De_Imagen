@@ -32,7 +32,7 @@ plt.axis('off')
 color_thief = ColorThief('IMAGEN.jpeg')
 dominant_color = color_thief.get_color(quality=1)
 color_dominante_rgb = color_thief.get_color()
-print(f"🎨 Color dominante: {color_dominante_rgb}")
+print(f" Color dominante: {color_dominante_rgb}")
 
 # Paleta de 5 colores dominantes
 color_palette_rgb = color_thief.get_palette(color_count=5)
@@ -67,12 +67,13 @@ calido = cv2.cvtColor(img, cv2.COLORMAP_AUTUMN)
 #Filtros de camara vieja y de colores frios
 img_rgb=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
 img_gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)#Convertir de BGR A GRAY
-sepia_filter = np.array([[0.30, 0.50, 0.12],  # Azul (suave)
+
+filtro = np.array([[0.30, 0.50, 0.12],  # Azul (suave)
     [0.35, 0.65, 0.15],
     [0.40, 0.75, 0.20]
 ], dtype=np.float32)
 
-frio = cv2.transform(img_rgb, sepia_filter)
+frio = cv2.transform(img_rgb, filtro)
 img_frio= np.clip(frio, 0, 255).astype(np.uint8)
 
 cam_filter = np.array([
